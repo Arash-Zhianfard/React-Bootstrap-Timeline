@@ -1,8 +1,8 @@
-import Bullet from "./Bullet";
-import Content from "./Content";
-import React, { useContext } from "react";
-import { Alignment, CenterPipeCardProps } from "./Type";
-import { TimelineContext } from "./TimelineContext";
+import Bullet from './Bullet';
+import Content from './Content';
+import React, { useContext } from 'react';
+import { Alignment, CenterPipeCardProps } from './Type';
+import { TimelineContext } from './TimelineContext';
 
 const CardWithCenterPipe = ({
   datetime,

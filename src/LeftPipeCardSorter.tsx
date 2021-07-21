@@ -1,33 +1,32 @@
-import React from "react";
-import CardWithLeftPipe from "./CardWithLeftPipe";
-import { CardProps } from "./Type";
+import React from 'react';
+import CardWithLeftPipe from './CardWithLeftPipe';
+import { CardProps, LeftPipeCardProps } from './Type';
 
 const LeftPipeCardSorter = ({ Cards }: { Cards: CardProps[] }) => {
   return (
     <React.Fragment>
       {Cards.map((cardDefinition: CardProps, index) => {
+        var cardProps: LeftPipeCardProps;
         if (index === 0) {
-          var cardProps = {
+          cardProps = {
             ...cardDefinition,
             bottomLine: true,
             topLine: false,
           };
-          return <CardWithLeftPipe {...cardProps} />;
         } else if (index === Cards.length - 1) {
-          var cardProps = {
+          cardProps = {
             ...cardDefinition,
             bottomLine: false,
             topLine: true,
           };
-          return <CardWithLeftPipe {...cardProps} />;
         } else {
-          var cardProps = {
+          cardProps = {
             ...cardDefinition,
             bottomLine: true,
             topLine: true,
           };
-          return <CardWithLeftPipe {...cardProps} />;
         }
+        return <CardWithLeftPipe {...cardProps} key={index} />;
       })}
     </React.Fragment>
   );

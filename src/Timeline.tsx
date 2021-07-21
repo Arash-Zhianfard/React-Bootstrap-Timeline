@@ -5,7 +5,7 @@ import LeftPipeCardSorter from "./LeftPipeCardSorter";
 import { TimelineContext } from "./TimelineContext";
 const Timeline = ({ cards, setting, children }: TimelineProps) => {
   const timelineContext = useContext(TimelineContext);
-  const [cardElement, setcardElement] = React.useState<CardProps[] | []>([]);
+  const [cardElement, setCardElement] = React.useState<CardProps[] | []>([]);
   useEffect(() => {
     if (setting) {
       var userDefinedSetting = { ...setting };
@@ -16,10 +16,10 @@ const Timeline = ({ cards, setting, children }: TimelineProps) => {
       if (userDefinedSetting.PaddingY)
         timelineContext.PaddingY = userDefinedSetting.PaddingY;
     }
-    if (cards) setcardElement((cardElement) => [...cardElement, ...cards]);
+    if (cards) setCardElement((cardElement) => [...cardElement, ...cards]);
     React.Children.forEach(children, (element) => {
       if (!React.isValidElement(element)) return;
-      setcardElement((cardElement) => [...cardElement, element.props]);
+      setCardElement((cardElement) => [...cardElement, element.props]);
     });
   }, []);
 
